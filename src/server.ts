@@ -1,9 +1,10 @@
-import 'dotenv';
+import 'dotenv/config';
 import https from 'https';
 import http from 'http';
 import fs from 'fs';
 import { ConnectionOptions, createConnection } from 'typeorm';
 import app from './app';
+import entities from './entities';
 
 const Options: ConnectionOptions = {
   type: 'postgres',
@@ -14,7 +15,7 @@ const Options: ConnectionOptions = {
   password: process.env.DB_PASSWORD,
   synchronize: false,
   logging: false,
-  entities: [],
+  entities,
 };
 
 const _bootStrap = async () => {
