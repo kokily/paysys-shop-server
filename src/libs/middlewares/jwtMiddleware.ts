@@ -28,6 +28,7 @@ const jwtMiddleware: Middleware = async (ctx: Context, next: Next) => {
 
       ctx.state.user = {
         user_id: refreshTokenData.user_id,
+        username: refreshTokenData.username,
         admin: refreshTokenData.admin,
       };
 
@@ -57,6 +58,7 @@ const jwtMiddleware: Middleware = async (ctx: Context, next: Next) => {
 
       ctx.state.user = {
         user_id: accessTokenData.user_id,
+        username: accessTokenData.username,
         admin: accessTokenData.admin,
       };
 

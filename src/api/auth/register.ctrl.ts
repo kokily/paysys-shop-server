@@ -48,7 +48,11 @@ const register = async (ctx: Context) => {
 
     await userRepo.save(user);
 
-    ctx.body = user.username;
+    ctx.body = {
+      user_id: user.id,
+      username: user.username,
+      admin: user.admin,
+    };
   } catch (err: any) {
     ctx.throw(500, err);
   }

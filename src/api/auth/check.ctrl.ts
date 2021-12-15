@@ -27,6 +27,7 @@ const check = async (ctx: Context) => {
     ctx.body = {
       user_id,
       username: user.username,
+      admin: user.admin,
     };
   } catch (err: any) {
     ctx.throw(500, err);

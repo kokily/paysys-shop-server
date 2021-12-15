@@ -14,11 +14,13 @@ export type TokenType = {
 
 export type AccessTokenType = {
   user_id: string;
+  username: string;
   admin: boolean;
 } & TokenType;
 
 export type RefreshTokenType = {
   user_id: string;
+  username: string;
   admin: boolean;
   token_id: string;
 } & TokenType;
@@ -98,12 +100,12 @@ export const createToken = async (user: User) => {
   await tokenRepo.save(token);
 
   const accessToken = await generateToken(
-    { user_id: user.id, admin: user.admin },
+    { user_id: user.id, username: user.username, admin: user.admin },
     { subject: 'access_token', expiresIn: '15m' }
   );
 
   const refreshToken = await generateToken(
-    { user_id: user.id, admin: user.admin, token_id: token.id },
+    { user_id: user.id, username: user.username, admin: user.admin, token_id: token.id },
     { subject: 'refresh_token', expiresIn: '15d' }
   );
 
@@ -129,14 +131,19 @@ export const tokenRefresh = async (ctx: Context, prevRefreshToken: string) => {
 
     if (diff < 1000 * 60 * 60 * 24 * 15) {
       refreshToken = await generateToken(
-        { user_id: user.id, admin: user.admin, token_id: decoded.token_id },
+        {
+          user_id: user.id,
+          username: user.username,
+          admin: user.admin,
+          token_id: decoded.token_id,
+        },
         { subject: 'refresh_token', expiresIn: '15d' }
       );
     }
 
     const accessToken = await generateToken(
-      { user_id: user.id, admin: user.admin },
-      { subject: 'access_token', expiresIn: '15s' }
+      { user_id: user.id, username: user.username, admin: user.admin },
+      { subject: 'access_token', expiresIn: '15m' }
     );
 
     setCookies(ctx, { accessToken, refreshToken });
