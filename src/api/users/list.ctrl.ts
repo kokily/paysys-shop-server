@@ -15,6 +15,7 @@ const listUsers = async (ctx: Context) => {
     const userRepo = await getRepository(User);
     const query = await getManager()
       .createQueryBuilder(User, 'users')
+      .limit(20)
       .orderBy('users.created_at', 'DESC')
       .addOrderBy('users.id', 'DESC');
 
