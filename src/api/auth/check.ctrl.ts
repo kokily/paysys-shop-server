@@ -6,6 +6,11 @@ import User from '../../entities/User';
 const check = async (ctx: Context) => {
   try {
     const { user_id } = ctx.state.user;
+
+    if (!user_id) {
+      ctx.throw(401, '로그인 후 이용해 주세요');
+    }
+
     const userRepo = await getRepository(User);
     const tokenRepo = await getRepository(Token);
     const user = await userRepo.findOne(user_id);
