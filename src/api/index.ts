@@ -6,6 +6,7 @@ import items from './items';
 import result from './result';
 import upload from './upload';
 import users from './users';
+import weddings from './weddings';
 
 const api = new Router();
 
@@ -16,5 +17,6 @@ api.use('/items', items.routes());
 api.use('/result', result.routes());
 api.use('/upload', upload.routes());
 api.use('/users', users.routes());
+api.use('/weddings', weddings.routes());
 
 export default api;
