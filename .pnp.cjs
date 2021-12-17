@@ -42,6 +42,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/koa-logger", "npm:3.1.2"],
             ["@types/koa-router", "npm:7.4.4"],
             ["@types/koa-send", "npm:4.1.3"],
+            ["@types/koa-sslify", "npm:4.0.2"],
             ["@types/koa-static", "npm:4.0.2"],
             ["@types/moment", "npm:2.13.0"],
             ["@types/node", "npm:16.11.13"],
@@ -58,6 +59,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["koa-logger", "npm:3.2.1"],
             ["koa-router", "npm:10.1.1"],
             ["koa-send", "npm:5.0.1"],
+            ["koa-sslify", "npm:5.0.0"],
             ["koa-static", "npm:5.0.0"],
             ["moment", "npm:2.29.1"],
             ["pg", "virtual:74e53d2fa2163b92abd4c96bfaf299c053bff68fc4918794b77c7a1816e8959afca9795688a8719cd4055ad75dbf4ddafba8e1e686f56ffb0c7a7bc7e0b43a72#npm:8.7.1"],
@@ -360,6 +362,16 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/@types-koa-send-npm-4.1.3-07a2282495-f20f6a0dcc.zip/node_modules/@types/koa-send/",
           "packageDependencies": [
             ["@types/koa-send", "npm:4.1.3"],
+            ["@types/koa", "npm:2.13.4"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["@types/koa-sslify", [
+        ["npm:4.0.2", {
+          "packageLocation": "./.yarn/cache/@types-koa-sslify-npm-4.0.2-02c85b6998-8f5b0c5a88.zip/node_modules/@types/koa-sslify/",
+          "packageDependencies": [
+            ["@types/koa-sslify", "npm:4.0.2"],
             ["@types/koa", "npm:2.13.4"]
           ],
           "linkType": "HARD",
@@ -2009,6 +2021,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "linkType": "HARD",
         }]
       ]],
+      ["koa-sslify", [
+        ["npm:5.0.0", {
+          "packageLocation": "./.yarn/cache/koa-sslify-npm-5.0.0-dae4e35e94-d9ca4b3871.zip/node_modules/koa-sslify/",
+          "packageDependencies": [
+            ["koa-sslify", "npm:5.0.0"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
       ["koa-static", [
         ["npm:5.0.0", {
           "packageLocation": "./.yarn/cache/koa-static-npm-5.0.0-4248438d52-8d9b9c4d2b.zip/node_modules/koa-static/",
@@ -2533,6 +2554,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["@types/koa-logger", "npm:3.1.2"],
             ["@types/koa-router", "npm:7.4.4"],
             ["@types/koa-send", "npm:4.1.3"],
+            ["@types/koa-sslify", "npm:4.0.2"],
             ["@types/koa-static", "npm:4.0.2"],
             ["@types/moment", "npm:2.13.0"],
             ["@types/node", "npm:16.11.13"],
@@ -2549,6 +2571,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
             ["koa-logger", "npm:3.2.1"],
             ["koa-router", "npm:10.1.1"],
             ["koa-send", "npm:5.0.1"],
+            ["koa-sslify", "npm:5.0.0"],
             ["koa-static", "npm:5.0.0"],
             ["moment", "npm:2.29.1"],
             ["pg", "virtual:74e53d2fa2163b92abd4c96bfaf299c053bff68fc4918794b77c7a1816e8959afca9795688a8719cd4055ad75dbf4ddafba8e1e686f56ffb0c7a7bc7e0b43a72#npm:8.7.1"],
