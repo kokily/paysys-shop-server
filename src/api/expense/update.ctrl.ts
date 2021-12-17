@@ -372,14 +372,26 @@ export default async function updateExpense(ctx: Context) {
     );
 
     // 선입금
-    await prepaymentRepo.update(
-      { weddingId: id },
-      {
-        prepayment_husband,
-        prepayment_bride,
-        weddingId: id,
-      }
-    );
+    const prepayment = await prepaymentRepo.findOne({ weddingId: id });
+
+    if (prepayment) {
+      await prepaymentRepo.update(
+        { weddingId: id },
+        {
+          prepayment_husband,
+          prepayment_bride,
+          weddingId: id,
+        }
+      );
+    } else {
+      const prepayment = new Prepayment();
+
+      prepayment.prepayment_husband = prepayment_husband;
+      prepayment.prepayment_bride = prepayment_bride;
+      prepayment.weddingId = id;
+
+      await prepaymentRepo.save(prepayment);
+    }
 
     ctx.status = 200;
   } catch (err: any) {

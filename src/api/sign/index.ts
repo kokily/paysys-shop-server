@@ -6,6 +6,6 @@ import removeSign from './remove.ctrl';
 const sign = new Router();
 
 sign.post('/', authorizedAdmin, addSign);
-sign.patch('/:id', authorizedAdmin, removeSign);
+sign.patch('/', authorizedAdmin, removeSign);
 
 export default sign;

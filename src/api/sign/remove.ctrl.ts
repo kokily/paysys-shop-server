@@ -1,9 +1,21 @@
 import type { Context } from 'koa';
 import { getRepository } from 'typeorm';
+import Joi from 'joi';
 import Wedding from '../../entities/wedding/Wedding';
+import { validateBody } from '../../libs/utils';
 
 const removeSign = async (ctx: Context) => {
-  const { id }: { id: string } = ctx.params;
+  type RequestType = {
+    id: string;
+  };
+
+  const schema = Joi.object().keys({
+    id: Joi.string().required(),
+  });
+
+  if (!validateBody(ctx, schema)) return;
+
+  const { id }: RequestType = ctx.request.body;
 
   try {
     const weddingRepo = await getRepository(Wedding);
