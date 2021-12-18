@@ -22,8 +22,8 @@ const removeReserve = async (ctx: Context) => {
 
       ctx.status = 200;
     } else {
-      ctx.status = 409;
-      ctx.body = '이미 예약금이 입력되어 있습니다.';
+      ctx.status = 404;
+      ctx.body = '예약금이 없습니다.';
       return;
     }
   } catch (err: any) {
