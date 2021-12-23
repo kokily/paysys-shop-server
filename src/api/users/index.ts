@@ -9,8 +9,8 @@ import removeUser from './remove.ctrl';
 
 const users = new Router();
 
-users.post('/admin/:id', authorizedAdmin, setAdmin);
-users.post('/employee/:id', authorizedAdmin, setEmployee);
+users.post('/admin', authorizedAdmin, setAdmin);
+users.post('/employee', authorizedAdmin, setEmployee);
 users.get('/', authorizedAdmin, listUsers);
 users.patch('/password', authorized, changePassword);
 users.get('/:id', authorizedAdmin, readUser);
