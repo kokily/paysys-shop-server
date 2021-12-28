@@ -1,7 +1,6 @@
 import type { Context } from 'koa';
 import { getRepository } from 'typeorm';
 import Bill from '../../entities/Bill';
-import User from '../../entities/User';
 
 const removeBill = async (ctx: Context) => {
   const { id }: { id: string } = ctx.params;
@@ -11,7 +10,7 @@ const removeBill = async (ctx: Context) => {
     const billRepo = await getRepository(Bill);
     const bill = await billRepo.findOne(id);
 
-    if (!user_id || !admin) {
+    if (!user_id && !admin) {
       ctx.status = 401;
       ctx.body = '로그인 후 이용해 주세요';
       return;

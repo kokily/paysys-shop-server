@@ -4,7 +4,6 @@ import aligo from 'aligoapi';
 import Joi from 'joi';
 import Bill from '../../entities/Bill';
 import Cart from '../../entities/Cart';
-import User from '../../entities/User';
 import loadCart from '../../libs/loadCart';
 import { validateBody } from '../../libs/utils';
 
